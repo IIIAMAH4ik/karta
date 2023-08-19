@@ -1,9 +1,0 @@
-#app {
-    overflow: hidden;
-    /* height: calc(100% - 40px); */
-    width: 320px;
-    height: 240px;
-
-    border: 1px solid #ccc;
-}
-
