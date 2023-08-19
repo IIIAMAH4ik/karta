@@ -37,22 +37,23 @@
                 zoom: 14 // Уровень масштабирования карты
             });
 
-            // Используем геокодер для поиска кофейни "Баланс кофе" в Нальчике
-            ymaps.geocode("Баланс кофе", {
-                results: 10 // Количество результатов для поиска
-            }).then(function (res) {
-                var cafes = res.geoObjects;
-                cafes.each(function (cafe) {
-                    var coords = cafe.geometry.getCoordinates();
-                    var name = cafe.properties.get("name");
+            // Список кофеен "Баланс кофе" с координатами
+            var cafes = [
+                { name: "Баланс кофе 1", coordinates: [43.492264, 43.598309] },
+                { name: "Баланс кофе 2", coordinates: [43.476409, 43.573822] },
+                { name: "Баланс кофе 3", coordinates: [43.472249, 43.585441] },
+                { name: "Баланс кофе 4", coordinates: [43.484427, 43.607113] },
+                { name: "Баланс кофе 5", coordinates: [43.472029, 43.585719] },
+                // Добавьте другие кофейни и их координаты по аналогии
+            ];
 
-                    // Создаем метку для каждой кофейни и добавляем ее на карту
-                    var placemark = new ymaps.Placemark(coords, {
-                        balloonContent: name
-                    });
-
-                    myMap.geoObjects.add(placemark);
+            // Создаем маркеры для каждой кофейни и добавляем их на карту
+            cafes.forEach(function (cafe) {
+                var marker = new ymaps.Placemark(cafe.coordinates, {
+                    balloonContent: cafe.name
                 });
+
+                myMap.geoObjects.add(marker);
             });
         }
     </script>
