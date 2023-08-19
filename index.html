@@ -3,9 +3,23 @@
 <head>
     <title>Карта с кофейнями "Баланс кофе" в Нальчике</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html, body, #map {
-            width: 100%; height: 500px; margin: 0; padding: 0;
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            height: 70%; /* Высота карты (70% экрана) */
+            min-height: 300px;
+            max-height: 600px;
+        }
+
+        h1 {
+            text-align: center;
         }
     </style>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=d0fcf157-894e-4d28-a4f6-9f3ae4e3a729"></script>
@@ -25,7 +39,7 @@
 
             // Используем геокодер для поиска кофейни "Баланс кофе" в Нальчике
             ymaps.geocode("Нальчик, Баланс кофе", {
-                results: 5 // Количество результатов для поиска
+                results: 10 // Количество результатов для поиска
             }).then(function (res) {
                 var cafes = res.geoObjects;
                 cafes.each(function (cafe) {
