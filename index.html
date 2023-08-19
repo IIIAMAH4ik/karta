@@ -25,7 +25,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=d0fcf157-894e-4d28-a4f6-9f3ae4e3a729"></script>
 </head>
 <body>
-    <h1>Кофейни "Баланс кофе" в Нальчике</h1>
+    <h1>Balance coffee</h1>
     <div id="map"></div>
 
     <script>
@@ -38,7 +38,7 @@
             });
 
             // Используем геокодер для поиска кофейни "Баланс кофе" в Нальчике
-            ymaps.geocode("Нальчик, Баланс кофе", {
+            ymaps.geocode("Баланс кофе", {
                 results: 10 // Количество результатов для поиска
             }).then(function (res) {
                 var cafes = res.geoObjects;
